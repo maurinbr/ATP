@@ -1,0 +1,196 @@
+page 1 
+date(input) field_64fb10a27d74d
+kit(input)  field_64fb10f07d74e
+labo        field_64fb12edd9813
+structure   field_64fb110e7d74f
+    CSAPA
+    CAARUD
+    Association intervenant en milieux festifs
+    Association d'autosupport
+
+partenaire
+    CSAPA HCL
+    CAARUD AIDES Grenoble
+    APT 15 OPPELIA
+    CAARUD AIDES 63
+    Le Pélican
+    ENIPSE PREVENTION SANTE LYON
+    Association Addictions France Nord Ardèche
+    Association Addictions France Sud Ardèche
+    CAARUD Rimbaud
+    CAARUD RUPTURES
+    Tempo – Oppelia
+    CAARUD Pause Diabolo
+    Keep Smiling
+    ENIPSE PREVENTION SANTE SAINT ETIENNE
+
+departement
+    01 - Ain
+    07 - Ardèche
+    03 - Allier
+    15 - Cantal
+    38 - Isère
+    26 - Drôme
+    43 - Haute-Loire
+    42 - Loire
+    63 - Puy-de-Dôme
+    73 - Savoie
+    69 - Rhône
+    74 - Haute-Savoie
+
+page 2
+
+genre           field_64feda2025464
+age  input      field_64fedace25465
+pseudo          field_64fedb1425466
+
+page 3          field_64fedbe641a2e
+    2-CB
+    2-MMC
+    3-CMC
+    3-MEC
+    3-MMC
+    4-MMC
+    Amphétamine
+    Autres molécule ou produit
+    Cannabinoïde de synthèse
+    Cannabis
+    Cocaïne
+    Cocaïne base (crack)
+    Codeine
+    DMT
+    Ecstasy
+    Fentanyl
+    GBL
+    GHB
+    Héroïne blanche
+    Héroïne brune
+    Kétamine
+    LSD
+    MDMA (cristal/poudre)
+    Métamphétamine
+    Morphine
+    Ne souhaite pas répondre
+    Produit inconnu de l'usager
+    Psilocybine
+    stéroïde
+    Tramadol
+    Tucibi
+
+acheté comme(input)        field_64fedc4941a2f
+
+galénique                       field_64fedc9541a30
+    Aliment
+    Autres
+    Buvard
+    Capsule
+    Comprimé
+    Forme pharmaceutique industrielle
+    Liquide
+    Micropointe
+    Pâte
+    Plante
+    Poudre/Cristal
+
+page 4
+
+fréquence           field_64fedd2e41a33
+    1ère expérimentation
+    Moins d'une fois par an
+    Une à plusieurs fois par an
+    Une à plusieurs fois par mois
+    Une à plusieurs fois par semaine
+    Usage quotidien
+    Ne sait pas
+
+contexte            field_64fee14441a3b
+    Seul
+    Avec des amis
+    En milieu festif
+    Sur le lieu de travail
+    Chemsex
+    Contexte de rue
+    Sport
+    Thérapeutique
+    Ne sait pas
+
+fréquence labo      field_64fede0b41a34
+    1ère expérimentation
+    Moins d'une fois par an
+    Une à plusieurs fois par an
+    Une à plusieurs fois par mois
+    Une à plusieurs fois par semaine
+    Usage quotidien
+    Ne sait pas
+
+motif           field_64fee09741a3a
+    Aspect du produit inhabituel
+    Autre
+    Composition d'un produit inconnu (produit trouvé par exemple)
+    Connaître la composition du produit
+    Doute sur la fiabilité du vendeur
+    Effet inattendu lors de la consommation
+    Ne souhaite pas répondre
+    Nouveau lot/nouveau revendeur
+    Partager le résultat avec d'autres personnes
+    Peu ou pas d'effet ressenti
+    Recherche d'informations sur le produit
+    Vérification que le produit attendu est bien présent
+
+déjà consommé           field_64fedec041a35
+    oui
+    non
+
+quelle voie de consommation field_64fedf1f41a36
+    Sniff
+    Inhalation
+    Injection
+    Oral
+    Anal
+    Autre
+    Ne sait pas
+
+quelle voie envisagée       field_64fee05941a39
+    Sniff
+    Inhalation
+    Injection
+    Oral
+    Anal
+    Autre
+    Ne sait pas
+
+page 5
+
+sintes      field_64ff0c7383dd1
+    oui
+    non
+
+    numéro sintes           field_64ff0cb783dd2 
+
+
+alrte       field_64ff0d0783dd3
+    Alerte à l'usager
+    Alerte des autorités sanitaires
+    Non
+
+page 6
+
+effet       field_64ff0d7483dd5
+    Faible
+    Moyen
+    Fort
+    Aucun
+
+teneur (input)     field_64ff0e5583dd8
+
+unité               field_64ff0e8683dd9
+    %
+    mg
+
+effet inattendu(input)     field_64ff0f1483dda
+
+teneur(input)                   field_64ff0dac83dd6
+
+unité                           field_64ff0ddf83dd7
+
+valider

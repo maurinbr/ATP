@@ -5,16 +5,25 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import pandas as pd
+from fonctions import *
+
+df = pd.read_csv("C:/Users/bruno/Downloads/listing_export_20240530054445.csv", encoding='utf-8', sep=';')
+
+
+
+
 # Chemin vers le driver Selenium (ex: Chrome)
 driver_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
 
 # URL du site web
 url = "https://www.analysetonprod.fr/login/"
-echantillon = 'https://www.analysetonprod.fr/dashboard/echantillons'
+echantillon = 'https://www.analysetonprod.fr/dashboard/echantillons/formulaire-analyse'
 
 # Identifiants de connexion
-username = "b.maurin"
-password = "4ksh0izcasgr"
+
+username = pd.read_excel("C:/Users/bruno/Downloads/identifiants.xlsx")['id'][0]
+password = pd.read_excel("C:/Users/bruno/Downloads/identifiants.xlsx")['mdp'][0]
 
 # Configuration du navigateur
 options = webdriver.ChromeOptions()
@@ -36,16 +45,28 @@ username_field.send_keys(username)
 password_field.send_keys(password)
 submit_button.click()
 
+
+
 # Attendre le chargement de la page
 try:
-    WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CLASS_NAME, "page-trajet-button")))
+    WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CLASS_NAME, "flex")))
 
     driver.get(echantillon)
-    # Attendre que la connexion soit effectuée (vous pouvez modifier le temps d'attente selon vos besoins)
-    time.sleep(5)
+    try:
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, "field_64fb10a27d74d")))
 
-    # Fermer le navigateur
-    driver.quit()
+        # Attendre que la connexion soit effectuée (vous pouvez modifier le temps d'attente selon vos besoins)
+        
+        input_text(driver, 'field_64fb10a27d74d','21/05/2024')
+        
+        select_text(driver, 'field_64fb110e7d74f', 1)
 
-except:
-    pass
+        sleep(50)
+
+        # Fermer le navigateur
+        driver.quit()
+    except Exception as e :
+        print(e)
+
+except Exception as e :
+        print(e)
