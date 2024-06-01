@@ -56,11 +56,45 @@ try:
         WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, "field_64fb10a27d74d")))
 
         # Attendre que la connexion soit effectuée (vous pouvez modifier le temps d'attente selon vos besoins)
-        
-        input_text(driver, 'field_64fb10a27d74d','21/05/2024')
-        
-        select_text(driver, 'field_64fb110e7d74f', 1)
+        for i in df.index:
+            
+            # Page 1
+            input_text(driver, 'field_64fb10a27d74d',df.loc[df.index==i]['Date collecte'].values[0])
+            input_text(driver, 'field_64fb10f07d74e',df.loc[df.index==i]['Numero kit'].values[0])
+            select_text(driver, 'field_64fb110e7d74f',df.loc[df.index==i]['Cadre collecte'].values[0])
+            select_text(driver, 'field_64fb12edd9813', 1)
+            select_text(driver, 'field_64fb131ad9814',df.loc[df.index==i]['ID departement'].values[0])
+            select_text(driver, 'field_64fb116c7d750',df.loc[df.index==i]['ID de la structure'].values[0])
 
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(0.5)
+            
+            # Page 2
+            select_text(driver, 'field_64feda2025464',df.loc[df.index==i]['Sexe usager'].values[0])            
+            input_text(driver, 'field_64fedace25465',df.loc[df.index==i]['Age'].values[0])
+            input_text(driver, 'field_64fedb1425466',df.loc[df.index==i]['Pseudo usager'].values[0])
+
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(0.5)
+
+            # Page 3
+            select_text(driver, 'field_64fedbe641a2e',df.loc[df.index==i]['Achete'].values[0])
+            if (df.loc[df.index==i]['Produit autre'].values[0]):
+                input_text(driver, 'field_64fedc4941a2f',df.loc[df.index==i]['Produit autre'].values[0])
+            for index, row in df.iterrows():
+                # Trouver la colonne contenant "oui" pour cette ligne
+                oui_column = row[row == "oui"].index
+            select_text(driver, 'field_64fedc9541a30',df.loc[df.index==i]['Galenique'].values[0])
+            
+            
+
+
+        
+        
         sleep(50)
 
         # Fermer le navigateur
