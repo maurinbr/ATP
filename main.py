@@ -11,7 +11,11 @@ from fonctions import *
 df = pd.read_csv("C:/Users/bruno/Downloads/listing_export_20240530054445.csv", encoding='utf-8', sep=';')
 
 
-
+""""Pré traitement des données
+    fusionnée les fichers analyses et fiche patient
+    changer la colonne 'Produit autre' par 'Produit autre'
+    convertir les données en leur numéro
+    """""
 
 # Chemin vers le driver Selenium (ex: Chrome)
 driver_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
@@ -82,19 +86,67 @@ try:
             sleep(0.5)
 
             # Page 3
-            select_text(driver, 'field_64fedbe641a2e',df.loc[df.index==i]['Achete'].values[0])
-            if (df.loc[df.index==i]['Produit autre'].values[0]):
+            sleep(2)
+
+            try:
+                select_text(driver, 'field_64fedbe641a2e',df.loc[df.index==i].iloc[0,1:12].sum())
+            except Exception as e :
                 input_text(driver, 'field_64fedc4941a2f',df.loc[df.index==i]['Produit autre'].values[0])
-            for index, row in df.iterrows():
-                # Trouver la colonne contenant "oui" pour cette ligne
-                oui_column = row[row == "oui"].index
+                pass
             select_text(driver, 'field_64fedc9541a30',df.loc[df.index==i]['Galenique'].values[0])
             
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(0.5)
+        
+            # Page 4
+            select_text(driver, 'field_64fee14441a3b',9) # contexte
+            select_text(driver, 'field_64feda2025464',df.loc[df.index==i]['id frequence'].values[0]) 
+            select_text(driver, 'field_64fede0b41a34',9) # fréquence labo
+            select_text(driver, 'field_64fedec041a35',df.loc[df.index==i]['id consomme'].values[0]) 
+            try:
+                select_text(driver, 'field_64fedf1f41a36',7) # voie de conso
+            except:
+                pass
+            try:                
+                select_text(driver, 'field_64fee05941a39',7) # conso envisagée
+            except:
+                pass
+            # TODO: fonction multi selecte
+            select_multi(driver,'field_64fee09741a3a',)     
             
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(0.5)
+            
+            select_text(driver, 'field_64ff0c7383dd1',2)
+            select_text(driver, 'field_64ff0cb783dd2',3)
 
-
-        
-        
+            sleep(5)
+            
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(0.5)
+            
+            # Page 5
+            select_text(driver, 'field_64ff0d7483dd5',2) # effet ressenti
+            input_text(driver,"field_64ff0e5583dd8",100) # teneur estimé
+            select_text(driver,'field_64ff0e8683dd9',1) # unité
+            try:
+                input_text(driver,'field_64ff0f1483dda','') # effet resenti
+            except:
+                pass
+            input_text(driver,"field_64ff0dac83dd6",100) # teneur vendeur
+            select_text(driver,'field_64ff0ddf83dd7',1) # unité
+            
+            # Page suivante
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[1].click()
+            sleep(10)
+            
         sleep(50)
 
         # Fermer le navigateur

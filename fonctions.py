@@ -21,4 +21,8 @@ def select_text(driver, id, choice):
             Scroll = False
         except:
             pass
+        
+def select_multi(driver, id, choice):
+    return
+            
             

@@ -103,33 +103,33 @@ galénique                       field_64fedc9541a30
 page 4
 
 fréquence           field_64fedd2e41a33
-    1ère expérimentation
-    Moins d'une fois par an
-    Une à plusieurs fois par an
-    Une à plusieurs fois par mois
-    Une à plusieurs fois par semaine
-    Usage quotidien
-    Ne sait pas
+   1 1ère expérimentation
+   2 Moins d'une fois par an
+   3 Une à plusieurs fois par an
+   4 Une à plusieurs fois par mois
+   5 Une à plusieurs fois par semaine
+   6 Usage quotidien
+   7 Ne sait pas
 
 contexte            field_64fee14441a3b
-    Seul
-    Avec des amis
-    En milieu festif
-    Sur le lieu de travail
-    Chemsex
-    Contexte de rue
-    Sport
-    Thérapeutique
-    Ne sait pas
+    1 Seul
+    2 Avec des amis
+    3 En milieu festif
+    4 Sur le lieu de travail
+    5 hemsex
+    6 Contexte de rue
+    7 Sport
+    8 Thérapeutique
+    9 Ne sait pas
 
 fréquence labo      field_64fede0b41a34
-    1ère expérimentation
-    Moins d'une fois par an
-    Une à plusieurs fois par an
-    Une à plusieurs fois par mois
-    Une à plusieurs fois par semaine
-    Usage quotidien
-    Ne sait pas
+    1 1ère expérimentation
+    2 Moins d'une fois par an
+    3 Une à plusieurs fois par an
+    4 Une à plusieurs fois par mois
+    5 Une à plusieurs fois par semaine
+    6 Usage quotidien
+    7 Ne sait pas
 
 motif           field_64fee09741a3a
     Aspect du produit inhabituel
@@ -146,17 +146,17 @@ motif           field_64fee09741a3a
     Vérification que le produit attendu est bien présent
 
 déjà consommé           field_64fedec041a35
-    oui
-    non
+    1 oui
+    2 non
 
 quelle voie de consommation field_64fedf1f41a36
-    Sniff
-    Inhalation
-    Injection
-    Oral
-    Anal
-    Autre
-    Ne sait pas
+    1 Sniff
+    2 Inhalation
+    3 Injection
+    4 Oral
+    5 Anal
+    6 Autre
+    7 Ne sait pas
 
 quelle voie envisagée       field_64fee05941a39
     Sniff
@@ -176,7 +176,7 @@ sintes      field_64ff0c7383dd1
     numéro sintes           field_64ff0cb783dd2 
 
 
-alrte       field_64ff0d0783dd3
+alerte       field_64ff0d0783dd3
     Alerte à l'usager
     Alerte des autorités sanitaires
     Non
