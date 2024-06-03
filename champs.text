@@ -132,18 +132,18 @@ fréquence labo      field_64fede0b41a34
     7 Ne sait pas
 
 motif           field_64fee09741a3a
-    Aspect du produit inhabituel
-    Autre
-    Composition d'un produit inconnu (produit trouvé par exemple)
-    Connaître la composition du produit
-    Doute sur la fiabilité du vendeur
-    Effet inattendu lors de la consommation
-    Ne souhaite pas répondre
-    Nouveau lot/nouveau revendeur
-    Partager le résultat avec d'autres personnes
-    Peu ou pas d'effet ressenti
-    Recherche d'informations sur le produit
-    Vérification que le produit attendu est bien présent
+    1   Aspect du produit inhabituel
+    2    Autre
+    3    Composition d'un produit inconnu (produit trouvé par exemple)
+    4    Connaître la composition du produit
+    5    Doute sur la fiabilité du vendeur
+    6    Effet inattendu lors de la consommation
+    7    Ne souhaite pas répondre
+    8    Nouveau lot/nouveau revendeur
+    9    Partager le résultat avec d'autres personnes
+    10    Peu ou pas d'effet ressenti
+    11    Recherche d'informations sur le produit
+    12    Vérification que le produit attendu est bien présent
 
 déjà consommé           field_64fedec041a35
     1 oui

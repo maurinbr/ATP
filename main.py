@@ -10,13 +10,6 @@ from fonctions import *
 
 df = pd.read_csv("C:/Users/bruno/Downloads/listing_export_20240530054445.csv", encoding='utf-8', sep=';')
 
-
-""""Pré traitement des données
-    fusionnée les fichers analyses et fiche patient
-    changer la colonne 'Produit autre' par 'Produit autre'
-    convertir les données en leur numéro
-    """""
-
 # Chemin vers le driver Selenium (ex: Chrome)
 driver_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
 
@@ -114,7 +107,9 @@ try:
             except:
                 pass
             # TODO: fonction multi selecte
-            select_multi(driver,'field_64fee09741a3a',)     
+            motif = df.loc[df.index==i].iloc[0,56:62].tolist()
+            motif = [x for x in motif if not pd.isna(x)]
+            select_multi(driver,'field_64fee09741a3a',motif)     
             
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -141,7 +136,7 @@ try:
                 pass
             input_text(driver,"field_64ff0dac83dd6",100) # teneur vendeur
             select_text(driver,'field_64ff0ddf83dd7',1) # unité
-            
+            sleep(10)
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
             next_button[1].click()
