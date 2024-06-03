@@ -46,15 +46,15 @@ submit_button.click()
 
 # Attendre le chargement de la page
 try:
-    WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CLASS_NAME, "flex")))
+    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "flex")))
 
     driver.get(echantillon)
     try:
-        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, "field_64fb10a27d74d")))
+        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, "field_64fb10a27d74d")))
 
         # Attendre que la connexion soit effectuée (vous pouvez modifier le temps d'attente selon vos besoins)
         for i in df.index:
-            
+            sleep(1)
             # Page 1
             input_text(driver, 'field_64fb10a27d74d',df.loc[df.index==i]['Date collecte'].values[0])
             input_text(driver, 'field_64fb10f07d74e',df.loc[df.index==i]['Numero kit'].values[0])
@@ -62,6 +62,7 @@ try:
             select_text(driver, 'field_64fb12edd9813', 1)
             select_text(driver, 'field_64fb131ad9814',df.loc[df.index==i]['ID departement'].values[0])
             select_text(driver, 'field_64fb116c7d750',df.loc[df.index==i]['ID de la structure'].values[0])
+            sleep(8)
 
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -72,6 +73,7 @@ try:
             select_text(driver, 'field_64feda2025464',df.loc[df.index==i]['Sexe usager'].values[0])            
             input_text(driver, 'field_64fedace25465',df.loc[df.index==i]['Age'].values[0])
             input_text(driver, 'field_64fedb1425466',df.loc[df.index==i]['Pseudo usager'].values[0])
+            
 
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -79,14 +81,15 @@ try:
             sleep(0.5)
 
             # Page 3
-            sleep(2)
 
             try:
                 select_text(driver, 'field_64fedbe641a2e',df.loc[df.index==i].iloc[0,1:12].sum())
             except Exception as e :
+                select_text(driver, 'field_64fedbe641a2e',8)
                 input_text(driver, 'field_64fedc4941a2f',df.loc[df.index==i]['Produit autre'].values[0])
                 pass
             select_text(driver, 'field_64fedc9541a30',df.loc[df.index==i]['Galenique'].values[0])
+            sleep(0.5)
             
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -95,21 +98,19 @@ try:
         
             # Page 4
             select_text(driver, 'field_64fee14441a3b',9) # contexte
-            select_text(driver, 'field_64feda2025464',df.loc[df.index==i]['id frequence'].values[0]) 
-            select_text(driver, 'field_64fede0b41a34',9) # fréquence labo
+            select_text(driver, 'field_64fedd2e41a33',df.loc[df.index==i]['id frequence'].values[0]) 
+            select_text(driver, 'field_64fede0b41a34',7) # fréquence labo
             select_text(driver, 'field_64fedec041a35',df.loc[df.index==i]['id consomme'].values[0]) 
-            try:
+            if (df.loc[df.index==i]['id consomme'].values[0] == 1):
                 select_text(driver, 'field_64fedf1f41a36',7) # voie de conso
-            except:
-                pass
-            try:                
                 select_text(driver, 'field_64fee05941a39',7) # conso envisagée
-            except:
-                pass
-            # TODO: fonction multi selecte
-            motif = df.loc[df.index==i].iloc[0,56:62].tolist()
+
+
+            motif = df.loc[df.index==i].iloc[0,54:].tolist()
             motif = [x for x in motif if not pd.isna(x)]
             select_multi(driver,'field_64fee09741a3a',motif)     
+            
+            sleep(0.5)
             
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -117,9 +118,8 @@ try:
             sleep(0.5)
             
             select_text(driver, 'field_64ff0c7383dd1',2)
-            select_text(driver, 'field_64ff0cb783dd2',3)
+            select_text(driver, 'field_64ff0d0783dd3',3)
 
-            sleep(5)
             
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
@@ -136,11 +136,15 @@ try:
                 pass
             input_text(driver,"field_64ff0dac83dd6",100) # teneur vendeur
             select_text(driver,'field_64ff0ddf83dd7',1) # unité
-            sleep(10)
+
             # Page suivante
             next_button = driver.find_elements(By.TAG_NAME, "button")
             next_button[1].click()
-            sleep(10)
+            sleep(2)
+            next_button = driver.find_elements(By.TAG_NAME, "button")
+            next_button[0].click()
+            sleep(1)
+
             
         sleep(50)
 

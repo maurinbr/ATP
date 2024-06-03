@@ -1,0 +1,4 @@
+TODO:
+selectionner les options en comparant les termes entre balises
+
+pré traiter un fichier csv 

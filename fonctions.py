@@ -37,10 +37,11 @@ def select_text(driver, id, choice):
     :rtype: None
     """
     Scroll = True
-    while(Scroll):
+    while(Scroll):    
         try:
             select_aera = driver.find_element(By.ID, id)
             select_aera.click()
+            sleep(0.5)
             script = 'document.querySelectorAll("#' + str(id) +'")[' + str(choice) + '].click()'
             driver.execute_script(script)
             Scroll = False
@@ -50,12 +51,14 @@ def select_text(driver, id, choice):
 def select_multi(driver, id, choice):
     select_aera = driver.find_element(By.ID, id)
     select_aera.click()
-    sleep(0.5)
+    sleep(1)
     for i in choice:
-        script = 'document.querySelectorAll("option")[' + str(choice) + '].click()'
+        script = 'document.querySelectorAll("option")[' + str(i) + '].click()'
         driver.execute_script(script)
-        Scroll = False
-        sleep(0.5)
+        sleep(0.1)
+    sleep(0.5)
+    select_aera = driver.find_element(By.CLASS_NAME, "my-6")
+    select_aera.click()
     return
             
             
